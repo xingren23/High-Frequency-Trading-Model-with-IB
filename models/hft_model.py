@@ -38,6 +38,8 @@ class HFTModel:
         self.order_id = 0
         self.lock = threading.Lock()
 
+        print "host=%s port=%d client_id=%d is_use_gateway=%b" % (host, port, client_id, is_use_gateway)
+
         # Use ibConnection() for TWS, or create connection for API Gateway
         self.conn = ibConnection() if is_use_gateway else \
             Connection.create(host=host, port=port, clientId=client_id)
